@@ -116,7 +116,7 @@ const updateAPISetting = CatchAsyncError(async (req, res, next) => {
     await settingModel.updateOne({ name: "apiKey" }, { $set: { value: apiKey } })
     await settingModel.updateOne({ name: "apiSecret" }, { $set: { value: apiSecret } })
 
-    axios.get(`http://localhost:8001/api/v2/franchise/verify?key=${apiKey}&secret=${apiSecret}`).then(function (response) {
+    axios.get(`https://softwarevala.net/api/v2/franchise/verify?key=${apiKey}&secret=${apiSecret}`).then(function (response) {
         res.status(response.status).json({
             message: response.data.message
         })
