@@ -22,18 +22,6 @@ const DashboardLayout = ({ children }) => {
     ];
 
 
-    if (user?.role == "user") {
-        dashboardList.push({ name: "Become A Reseller", url: "/reseller/plan", icon: "fa-solid fa-address-book" },)
-    } else if (user?.role == "reseller") {
-        dashboardList.push({ name: "Reseller Dashboard", url: "/dashboard/reseller", icon: "fa-solid fa-address-book" },)
-    }
-
-    if (user?.role == "user") {
-        dashboardList.push({ name: "Become A Franchise", url: "/franchise/apply", icon: "fa-solid fa-address-book" },)
-    } else if (user?.role == "franchise") {
-        dashboardList.push({ name: "Franchise Dashboard", url: "/dashboard/franchise", icon: "fa-solid fa-address-book" },)
-    }
-
     if (user?.role == "admin") {
         dashboardList.push({ name: "Admin Panel", url: "/admin", icon: "fa-solid fa-address-book" },)
     }
