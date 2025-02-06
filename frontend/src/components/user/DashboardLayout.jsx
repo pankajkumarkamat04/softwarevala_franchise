@@ -1,0 +1,87 @@
+import React from 'react'
+import Breadcrumb from "./Breadcrumb"
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useLazyLogoutQuery } from '../../redux/api/UserAPI';
+
+const DashboardLayout = ({ children }) => {
+    const navigate = useNavigate()
+    const { user } = useSelector((state) => state.user)
+    const [logout, { data, isError, isLoading, isSuccess }] = useLazyLogoutQuery();
+
+
+    const dashboardList = [
+        { name: "Account Info", url: "/dashboard/account", icon: "fa-solid fa-user" },
+        { name: "Orders", url: "/dashboard/orders", icon: "fa-solid fa-box-open" },
+        { name: "Change Password", url: "/dashboard/password", icon: "fa-solid fa-key" },
+        {
+            name: "Logout",
+            url: "/logout",
+            icon: "fa-solid fa-right-from-bracket",
+        },
+    ];
+
+
+    if (user?.role == "user") {
+        dashboardList.push({ name: "Become A Reseller", url: "/reseller/plan", icon: "fa-solid fa-address-book" },)
+    } else if (user?.role == "reseller") {
+        dashboardList.push({ name: "Reseller Dashboard", url: "/dashboard/reseller", icon: "fa-solid fa-address-book" },)
+    }
+
+    if (user?.role == "user") {
+        dashboardList.push({ name: "Become A Franchise", url: "/franchise/apply", icon: "fa-solid fa-address-book" },)
+    } else if (user?.role == "franchise") {
+        dashboardList.push({ name: "Franchise Dashboard", url: "/dashboard/franchise", icon: "fa-solid fa-address-book" },)
+    }
+
+    if (user?.role == "admin") {
+        dashboardList.push({ name: "Admin Panel", url: "/admin", icon: "fa-solid fa-address-book" },)
+    }
+
+
+    const logoutHandler = async () => {
+        await logout()
+        navigate(0);
+    };
+    const location = useLocation();
+
+    return (
+        <div>
+            <Breadcrumb
+                breadcrumbLink1={`/dashboard}`}
+                breadcrumbLink1Text={"Dashboard"}
+                breadcrumbTitle={"Dashboard"}
+            />
+            <div className="container">
+                <div className="row pt-5 pb-5">
+                    <div className="col-md-3">
+                        <div className="box-shadow border ps-3 pt-1 ">
+                            <ul className="list-unstyled mb-0">
+                                {dashboardList.map((list) => (
+                                    <li
+                                        className={`fw-medium pt-1 pb-1 dashboard-li ${location.pathname == `/dashboard${list.url}`
+                                            ? "dashboard-li-active"
+                                            : ""
+                                            }`}
+                                        key={list.name}
+                                    >
+                                        <Link
+                                            onClick={list?.url == "/logout" ? logoutHandler : ""}
+                                            to={list?.url == "/logout" ? "" : `${list.url}`}
+                                        >
+                                            <i class={`${list.icon} pe-1`}></i>
+                                            {list.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="col-md-9">{children}</div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default DashboardLayout
