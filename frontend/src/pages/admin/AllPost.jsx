@@ -102,7 +102,7 @@ const AllPost = () => {
             <MetaData pageName={"All Products"} />
             <div className='d-flex justify-content-between'>
                 <p className='fs-4'>All Posts</p>
-                <Link className='btn btn-primary' to={"/admin/post/create"}>Add New Product</Link>
+                <Link className='btn btn-primary' to={"/admin/post/create"}>Add New Post</Link>
             </div>
             <div className='mt-2'>
                 <MDBDataTable striped bordered hover data={postData} />

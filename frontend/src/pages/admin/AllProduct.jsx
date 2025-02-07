@@ -10,7 +10,6 @@ const AllProduct = () => {
 
   const navigate = useNavigate()
   const { data, isLoading, error } = useGetAllAdminProductQuery()
-  console.log(error);
 
   const productData = {
     columns: [
@@ -90,7 +89,6 @@ const AllProduct = () => {
       <MetaData pageName={"All Products"} />
       <div className='d-flex justify-content-between'>
         <p className='fs-4'>All Products</p>
-        <Link className='btn btn-primary' to={"/admin/product/create"}>Add New Product</Link>
       </div>
       <div className='mt-2'>
         <MDBDataTable striped bordered hover data={productData} />

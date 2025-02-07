@@ -71,7 +71,7 @@ const AllCategory = () => {
             <MetaData pageName={"All Categories"} />
             <div className='d-flex justify-content-between'>
                 <p className='fs-4'>All Categories</p>
-                <Link className='btn btn-primary' to={"/admin/category/create"}>Add New Category</Link>
+
             </div>
             <div className='mt-2'>
                 <MDBDataTable striped bordered hover data={productData} />

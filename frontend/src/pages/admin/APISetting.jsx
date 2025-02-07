@@ -48,7 +48,7 @@ const APISetting = () => {
 
     return (
         <div className="container">
-            <MetaData pageName={"Payment Setting"} />
+            <MetaData pageName={"API Setting"} />
             <div className="row pt-md-2 pb-2 justify-content-center">
                 <div className="col-md-6">
                     <p className="text-uppercase fs-4">API Setting</p>
