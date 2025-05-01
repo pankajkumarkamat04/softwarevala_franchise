@@ -9,6 +9,7 @@ const updateSiteData = ({ generalSettingData, paymentSettingData, apiData }) => 
     siteData.siteOfficeTime = generalSettingData?.siteOfficeTime
     siteData.siteAbout = generalSettingData?.siteAbout
     siteData.siteURL = generalSettingData?.siteURL
+    siteData.siteWhatsappNo = generalSettingData?.siteWhatsappNo
     siteData.bankTransferActive = paymentSettingData?.bankTransferActive
     siteData.bankAccountNo = paymentSettingData?.bankAccountNo
     siteData.bankIFSCCode = paymentSettingData?.bankIFSCCode

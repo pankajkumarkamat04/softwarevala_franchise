@@ -20,9 +20,7 @@ const app = express()
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-if (process.env.NODE_ENV == "development") {
-    dotenv.config({ path: path.resolve(__dirname, `./config/.env`) })
-}
+dotenv.config({ path: path.resolve(__dirname, `./config/.env`) })
 
 DBConnect()
 

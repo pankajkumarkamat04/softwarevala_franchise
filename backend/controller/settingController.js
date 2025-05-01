@@ -3,7 +3,7 @@ import CatchAsyncError from "../middleware/CatchAsyncError.js";
 import settingModel from "../model/settingModel.js"
 
 const updateGeneralSetting = CatchAsyncError(async (req, res, next) => {
-    const { siteTitle, siteURL, siteDescription, siteMail, sitePhoneNo, siteAbout, siteOfficeTime, siteAddress, } = req.body
+    const { siteWhatsappNo, siteTitle, siteURL, siteDescription, siteMail, sitePhoneNo, siteAbout, siteOfficeTime, siteAddress, } = req.body
 
     await settingModel.updateOne({ name: "siteTitle" }, { $set: { value: siteTitle } })
     await settingModel.updateOne({ name: "siteDescription" }, { $set: { value: siteDescription } })
@@ -13,6 +13,7 @@ const updateGeneralSetting = CatchAsyncError(async (req, res, next) => {
     await settingModel.updateOne({ name: "siteOfficeTime" }, { $set: { value: siteOfficeTime } })
     await settingModel.updateOne({ name: "siteAddress" }, { $set: { value: siteAddress } })
     await settingModel.updateOne({ name: "siteURL" }, { $set: { value: siteURL } })
+    await settingModel.updateOne({ name: "siteWhatsappNo" }, { $set: { value: siteWhatsappNo } })
 
 
 
@@ -31,6 +32,7 @@ const getGeneralSetting = CatchAsyncError(async (req, res, next) => {
     const siteAbout = await settingModel.findOne({ name: "siteAbout" })
     const siteAddress = await settingModel.findOne({ name: "siteAddress" })
     const siteOfficeTime = await settingModel.findOne({ name: "siteOfficeTime" })
+    const siteWhatsappNo = await settingModel.findOne({ name: "siteWhatsappNo" })
 
 
     res.status(200).json({
@@ -42,6 +44,7 @@ const getGeneralSetting = CatchAsyncError(async (req, res, next) => {
         siteOfficeTime: siteOfficeTime?.value,
         siteAddress: siteAddress?.value,
         siteURL: siteURL?.value,
+        siteWhatsappNo: siteWhatsappNo?.value,
     })
 
 })

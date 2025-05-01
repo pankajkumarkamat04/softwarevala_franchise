@@ -21,7 +21,8 @@ const GeneralSetting = () => {
         siteAddress: "",
         siteOfficeTime: "",
         siteAbout: "",
-        siteURL: ""
+        siteURL: "",
+        siteWhatsappNo: ""
     })
 
     const [favicon, setFavicon] = useState()
@@ -50,7 +51,8 @@ const GeneralSetting = () => {
                 siteAddress: data.siteAddress,
                 siteOfficeTime: data.siteOfficeTime,
                 siteAbout: data.siteAbout,
-                siteURL: data.siteURL
+                siteURL: data.siteURL,
+                siteWhatsappNo: data.siteWhatsappNo
             })
             setContent(data.siteAbout)
         }
@@ -159,6 +161,19 @@ const GeneralSetting = () => {
                             <div className="pt-3">
                                 <label htmlFor="" className="form-label fw-bold">
                                     Site Phone No
+                                </label>
+                                <input
+                                    className="form-control rounded-0"
+                                    type="text"
+                                    name="sitePhoneNo"
+                                    value={generalSetting.sitePhoneNo}
+                                    placeholder="Please Enter Your Site Phone No"
+                                    onChange={(e) => inputHandler(e)}
+                                />
+                            </div>
+                            <div className="pt-3">
+                                <label htmlFor="" className="form-label fw-bold">
+                                    Site Whatsapp No <sup className=' text-danger'>With Country Code</sup>
                                 </label>
                                 <input
                                     className="form-control rounded-0"
