@@ -69,7 +69,7 @@ const APISetting = () => {
                             </div>
                             <div className="pt-3">
                                 <label htmlFor="" className="form-label fw-bold">
-                                    API Secrt
+                                    API Sercret
                                 </label>
                                 <input
                                     className="form-control rounded-0"

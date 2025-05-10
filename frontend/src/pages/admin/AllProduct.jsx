@@ -61,7 +61,7 @@ const AllProduct = () => {
 
   data?.product?.map((product, index) => {
 
-    const imgURL = product.images.length == 0 ? defalut_product_image : `https://softwarevala.net/assets/productImage/${product?.images[0]?.filename}`
+    const imgURL = product.images.length == 0 ? defalut_product_image : `https://softwarevala.net/api/assets/productImage/${product?.images[0]?.filename}`
 
     productData?.rows.push({
       id: product._id,

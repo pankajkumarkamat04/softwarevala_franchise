@@ -76,7 +76,7 @@ const Shop = () => {
                         {data?.product.map((product) => (
                             <div className="col-md-4 py-2">
                                 <div class="card product-card">
-                                    <Link to={`/product/${product._id}`}><img src={`${product?.images?.length == 0 ? "" : `https://softwarevala.net/assets/productImage/${product?.images[0]?.filename}`}`} className="card-img-top" alt={product?.name} /></Link>
+                                    <Link to={`/product/${product._id}`}><img src={`${product?.images?.length == 0 ? "" : `https://softwarevala.net/api/assets/productImage/${product?.images[0]?.filename}`}`} className="card-img-top" alt={product?.name} /></Link>
                                     <div class="card-body">
                                         <div className='d-flex'>
                                             <div className='col-6'>

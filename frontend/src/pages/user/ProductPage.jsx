@@ -19,7 +19,7 @@ const ProductPage = () => {
 
     useEffect(() => {
         if (isSuccess) {
-            setDefaultImage(`https://softwarevala.net/assets/productImage/${data?.product?.images[0].filename}`)
+            setDefaultImage(`https://softwarevala.net/api/assets/productImage/${data?.product?.images[0].filename}`)
         }
     }, [isSuccess])
 
@@ -58,7 +58,7 @@ const ProductPage = () => {
                             <div className="row">
                                 {data?.product?.images.map((img) => (
                                     <div className="col-3" onClick={() => changeImage(`/assets/productImage/${img?.filename}`)}>
-                                        <img className='img-fluid m-2' src={`https://softwarevala.net/assets/productImage/${img?.filename}`} alt="" />
+                                        <img className='img-fluid m-2' src={`https://softwarevala.net/api/assets/productImage/${img?.filename}`} alt="" />
                                     </div>
                                 ))}
                             </div>

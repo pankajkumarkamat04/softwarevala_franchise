@@ -25,7 +25,7 @@ const HomeTopProduct = () => {
                         {data?.product.map((product) => (
                             <div class="col-md-3">
                                 <div class="card product-card">
-                                    <Link to={`/product/${product._id}`}><img src={`${product.images.length == 0 ? "" : `https://softwarevala.net/assets/productImage/${product?.images[0]?.filename}`}`} className="card-img-top" alt="Product 1" /></Link>
+                                    <Link to={`/product/${product._id}`}><img src={`${product.images.length == 0 ? "" : `https://softwarevala.net/api/assets/productImage/${product?.images[0]?.filename}`}`} className="card-img-top" alt="Product 1" /></Link>
                                     <div class="card-body">
                                         <div className='d-flex'>
                                             <div className='col-md-6'>
