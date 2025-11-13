@@ -23,7 +23,7 @@ const HeroSection = () => {
         <>
             <section class="hero-section" style={{ background: `linear-gradient(#00000080,#00000080),url(./assets/websiteImages/bannerImage.jpeg) no-repeat 50%` }}>
                 <div class="hero-content">
-                    <h1 class="display-4">Welcome to Software Vala</h1>
+                    <h1 class="display-4">Welcome to {siteData.siteTitle}</h1>
                     <p class="lead">Find what you're looking for in seconds.</p>
                     <div class="mt-4">
                         <form class="d-flex justify-content-center" role="search">
